@@ -63,7 +63,9 @@
 	[root@ip-172-31-26-193 ec2-user]# echo never > /sys/kernel/mm/transparent_hugepage/enabled
 	[root@ip-172-31-26-193 ec2-user]# cat /sys/kernel/mm/transparent_hugepage/enabled
 	always madvise [never]
-	[root@ip-172-31-26-193 ec2-user]# reboot
+	[root@ip-172-31-26-193 ec2-user]# sudo echo never > /sys/kernel/mm/transparent_hugepage/defrag
+	[root@ip-172-31-26-193 ec2-user]# cat /sys/kernel/mm/transparent_hugepage/defrag
+	always madvise [never]
 	```
 5. List your network interface configuration
 	```
