@@ -6,7 +6,6 @@ vm.swappiness = 30
 [ec2-user@ip-172-31-26-193 ~]$ sudo sysctl vm.swappiness=1
 vm.swappiness = 1
 ```
-
 2. Show the mount attributes of all volumes
 ```
 [ec2-user@ip-172-31-26-193 ~]$ mount | column -t
@@ -38,7 +37,6 @@ hugetlbfs   on  /dev/hugepages              type  hugetlbfs   (rw,relatime,secla
 systemd-1   on  /proc/sys/fs/binfmt_misc    type  autofs      (rw,relatime,fd=29,pgrp=1,timeout=300,minproto=5,maxproto=5,direct)
 tmpfs       on  /run/user/1000              type  tmpfs       (rw,nosuid,nodev,relatime,seclabel,size=1497312k,mode=700,uid=1000,gid=1000)
 ```
-
 3. Show the reserve space of any non-root, `ext`-based volumes
     * XFS volumes do not maintain reserve space
 ```
@@ -59,7 +57,6 @@ Units = sectors of 1 * 512 = 512 bytes
 Sector size (logical/physical): 512 bytes / 512 bytes
 I/O size (minimum/optimal): 512 bytes / 512 bytes
 ```
-
 4. Disable transparent hugepage support
 ```
 [ec2-user@ip-172-31-26-193 ~]$ sudo -s
@@ -68,7 +65,6 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 always madvise [never]
 [root@ip-172-31-26-193 ec2-user]# reboot
 ```
-
 5. List your network interface configuration
 ```
 [ec2-user@ip-172-31-26-193 ~]$ ifconfig
@@ -90,7 +86,6 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
         TX packets 4  bytes 340 (340.0 B)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ```
-
 6. List forward and reverse host lookups using `getent` or `nslookup`
 ```
 [ec2-user@ip-172-31-26-193 ~]$ getent hosts ec2-35-157-157-148.eu-central-1.compute.amazonaws.com
@@ -100,7 +95,6 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
 [ec2-user@ip-172-31-26-193 ~]$ getent hosts 35.157.157.148
 35.157.157.148  ec2-35-157-157-148.eu-central-1.compute.amazonaws.com
 ```
-
 7. Show the <code>nscd</code> service is running
 ```
 [ec2-user@ip-172-31-26-193 ~]$ sudo systemctl status nscd.service
@@ -113,7 +107,6 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
    CGroup: /system.slice/nscd.service
            └─9235 /usr/sbin/nscd
 ```
-
 8. Show the <code>ntpd</code> service is running<br>
 ```
 [ec2-user@ip-172-31-26-193 ~]$ sudo systemctl status ntpd.service
