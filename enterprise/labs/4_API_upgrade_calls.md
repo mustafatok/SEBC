@@ -38,8 +38,10 @@ $ curl -u mustafatok:cloudera 'http://35.156.89.235:7180/api/v15/users'
 
 Report the database server in use by CM
 
+```
 $ curl -u mustafatok:cloudera 'http://35.156.89.235:7180/api/v15/cm/scmDbInfo'
 {
   "scmDbType" : "MYSQL",
   "embeddedDbUsed" : false
 }
+```
