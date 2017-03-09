@@ -7,6 +7,11 @@ vm.swappiness = 30
 vm.swappiness = 1
 ```
 
+Edit : Setting swappiness with sysctl command does not perform it in permanent way. When the machines are restarted the value  is set to 30 again. In order to fix that, I put the configuration in sysctl.conf file in each node:
+```
+echo "vm.swappiness = 1" >> /etc/sysctl.conf
+```
+
 Show the mount attributes of all volumes
 
 ```
